@@ -76,7 +76,8 @@ export default class OrderConfirm extends React.Component<Props> {
 const ItemCard = ({ tableId, item, count, style }) => (
   <Link to={`/tables/${tableId}/items/${item.id}`}  style={style.a}>
     <ItemContainer>
-      <img src={item.photo.url} style={style.img} />
+      {/* <img src={item.photo.url} style={style.img} /> */}
+      <FireStorageImage type="item" photo={item.photo} style={style.img} />
       <ItemName>{ item.name }</ItemName>
       <CountCircle><p>{ count }</p></CountCircle>
     </ItemContainer>

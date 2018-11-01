@@ -69,7 +69,8 @@ export default class ItemPage extends React.Component<Props> {
       <Container>
         <Initializer match={this.props.match} />
 
-        <img src={this.item.photo.url} style={styles.img} />
+        {/* <img src={this.item.photo.url} style={styles.img} /> */}
+        <FireStorageImage type="item" photo={this.item.photo} style={styles.img} />
 
         <CloseButton onClick={ () => this.props.history.goBack() }>
           <FontAwesomeIcon icon='times' />

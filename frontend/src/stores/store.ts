@@ -83,31 +83,31 @@ class Store {
     db.collection(`stores/${this.storeId}/categories`).orderBy('precedence').get().then(snapshot => {
       this.categories = arrayFromSnapshot(snapshot);
 
-      for (let i = 0; i < this.categories.length; i++) {
-        const { photo } = this.categories[i];
-        const key = `categories/${photo.filename}`;
+      // for (let i = 0; i < this.categories.length; i++) {
+      //   const { photo } = this.categories[i];
+      //   const key = `categories/${photo.filename}`;
 
-        storageRef.child(key).getDownloadURL().then(url => {
-          this.categories[i].photo.url = url;
-          prefetch(url);
-        });
-      }
+      //   storageRef.child(key).getDownloadURL().then(url => {
+      //     this.categories[i].photo.url = url;
+      //     prefetch(url);
+      //   });
+      // }
     });
 
     db.collection(`stores/${this.storeId}/items`).get().then(snapshot => {
       this.items = arrayFromSnapshot(snapshot);
 
-      for (let i = 0; i < this.items.length; i++) {
-        const { photo } = this.items[i];
-        const key = `items/${photo.filename}`;
+      // for (let i = 0; i < this.items.length; i++) {
+      //   const { photo } = this.items[i];
+      //   const key = `items/${photo.filename}`;
 
-        setTimeout(() => {
-          storageRef.child(key).getDownloadURL().then(url => {
-            this.items[i].photo.url = url;
-            prefetch(url);
-          });
-        }, 3000);
-      }
+      //   setTimeout(() => {
+      //     storageRef.child(key).getDownloadURL().then(url => {
+      //       this.items[i].photo.url = url;
+      //       prefetch(url);
+      //     });
+      //   }, 3000);
+      // }
     });
 
     console.debug('Initialized Store!');

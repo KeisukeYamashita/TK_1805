@@ -81,7 +81,8 @@ const __CategoryPanelName = styled.span`
 const CategoryPanel = ({ tableId, category }) => (
   <Link to={`/tables/${tableId}/categories/${category.id}`} style={{ ...styles.link, boxSizing: 'border-box' }}>
     <__CategoryPanelContainer>
-      <img src={category.photo.url} style={styles.image} />
+      {/* <img src={category.photo.url} style={styles.image} /> */}
+      <FireStorageImage type="category" photo={category.photo} style={styles.image} />
       <__CategoryPanelName>{category.name}</__CategoryPanelName>
     </__CategoryPanelContainer>
   </Link>

@@ -78,7 +78,8 @@ export default class CategoryPage extends React.Component<Props> {
 const ItemPanel = ({ tableId, item, count, style }) => (
   <Link to={`/tables/${tableId}/items/${item.id}`} style={style.a} >
     <PanelContainer>
-      <img src={item.photo.url} style={style.img} />
+      {/* <img src={item.photo.url} style={style.img} /> */}
+      <FireStorageImage type="item" photo={item.photo} style={style.img} />
       <OverlayLabel>{ item.name }</OverlayLabel>
       { count &&
         <CountLabel><p>{ count }</p></CountLabel>
